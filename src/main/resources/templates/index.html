@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>  <!-- polskie znaku -->
+    <title>Calculate Your BMI - Body Mass Index</title>
+    <link rel="stylesheet" type="text/css" href="style.css"></link> <!-- nakierownie na style CSS -->
+</head>
+
+<div class="containerFor">
+    <br>
+    <span style="color:white;  font-family: Arial, Helvetica, sans-serif;	 font-size: 40px;   padding-top:20px;">
+			 Calculate Your BMI - Body Mass Index
+    </span>
+
+
+    <div class="paddingauto">
+        <br>
+
+        <div class="font-input">
+            <form action="/">
+                <div class="title">Step 1. Select gender
+                    <br> <br>
+
+                    <input type="radio" name="gender" value="male" th:checked="${gender=='male'}"> Male
+                    <input type="radio" name="gender" value="female" th:checked="${gender=='female'}"> Female
+                </div>
+                <br> <br>
+                <div class="title">Step 2. Put height</div>
+
+
+                <input type="number" name="height" max="240" min="50"
+                       style="text-transform:capitalize;" th:value="${height}">
+
+
+                <select name="unitheight" id="unitheight" style="text-transform:capitalize;">
+                    <option value="cm" th:selected="${unitheight=='cm'}">cm</option>
+                    <option value="in" th:selected="${unitheight=='in'}">in</option>
+                </select>
+                <br><br>
+
+                <div class="title">Step 3. Put weight</div>
+                <input type="number" name="weight" th:value="${weight}" max="350" min="40"
+                       style="text-transform:capitalize;">
+
+
+                <select name="unitweight" id="unitweight" style="text-transform:capitalize;">
+                    <option value="kg" th:selected="${unitweight=='kg'}">kg</option>
+                    <option value="lb" th:selected="${unitweight=='lb'}">lb</option>
+                </select>
+
+                <br><br>
+
+                <input type="submit" name="submit" value="Calculate" class="btn-login"><br>
+            </form>
+
+
+            <p th:text="${bmi}" class="title"></p>
+
+
+        </div>
+
+        <div>
+            <img th:src="${genderimg}">
+        </div>
+
+
+        <a href="https://github.com/wrajer/">
+            <img style="width: 200px " src="logo.png"><br>
+        </a>
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
+
+
